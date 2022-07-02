@@ -33,13 +33,7 @@ class RandomAdvice {
 
   static Future<RandomAdvice> getRandomAdvice() async {
     var resp = await Dio().get("https://api.adviceslip.com/advice");
-
-    print('passou primeiro');
-    final rvl = RandomAdvice.fromJson(resp.data);
-
-  print('passou segundo');
-    print(rvl);
-    print('passou');
+    final rvl = RandomAdvice.fromJson(json.decode(resp.data));
     return rvl;
   }
 
